@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="content">
+    <h3>Sign Up For Greatness</h3>
+  </div> 
+    
+  <div class="formi">
+   <form id="dataForm" novalidate >
+
+    <div class="email">
+        <label for="email">E-mail</label>
+        <input required minlength="5" id="email" type="email">
+        <span class="email" id="emailerr"></span>
+    </div>
+    <div class="country">
+        <label for="country">Country</label>
+        <input required list="countries" id="country" type="text">
+        <span id="ctyerr"></span>
+       <datalist id="countries">
+        <option value="India">India</option>
+        <option value="Russia">Russia </option>
+        <option value="China">China</option>
+      </datalist>
+    </div>
+
+    <div class="Zipcode">
+        <label for="zipcode">Zipcode</label>
+        <input required min="600000" max="699999" minlength="6" id="zipcode" type="number">
+        <span id="ziperr"></span>
+    </div>
+
+    <div class="Password">
+        <label for="password">Password</label>
+        <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required minlength="8" id="password" type="password"> <!--Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters-->
+       <div id="pwdver">
+        <span id="pwderr"></span>
+        <p>Passwords Must Contain</p>
+         <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p></div>
+    </div>
+
+    <div class="cfmpassword">
+        <label for="cfmpassword">Confirm Password</label>
+        <input required minlength="8" id="cfmpassword" type="password">
+        <span id="cpwderr"></span>
+    </div>
+    </form>
+   <button type="button" id="sbbtn">Submit</button>
+
+  </div>
+  
+</body>
+</html>
